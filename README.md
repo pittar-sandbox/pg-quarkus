@@ -2,7 +2,7 @@
 
 Open in **OpenShift Dev Spaces**:
 
-[![Contribute](https://www.eclipse.org/che/contribute.svg)](https://devspaces.apps.cluster-k8c7j.sandbox1466.opentlc.com/#https://github.com/pittar-sandbox/pg-quarkus){:target="_blank"}
+[![Contribute](https://www.eclipse.org/che/contribute.svg)](https://devspaces.apps.cluster-k8c7j.sandbox1466.opentlc.com/#https://github.com/pittar-sandbox/pg-quarkus)
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
