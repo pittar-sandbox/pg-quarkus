@@ -1,0 +1,88 @@
+schemaVersion: 2.2.0
+metadata:
+  name: pg-quarkus
+  version: 1.2.1
+  provider: Red Hat
+  icon: https://design.jboss.org/quarkus/logo/final/SVG/quarkus_icon_rgb_default.svg
+  website: https://quarkus.io
+  displayName: Quarkus Java and PostgreSQL
+  description: Quarkus with Java and PostgreSQL
+  tags:
+    - Java
+    - Quarkus
+    - PostgreSQL
+  projectType: Quarkus
+  language: Java
+  attributes:
+    alpha.dockerimage-port: 8081
+projects:
+  - name: "quarkus-amq"
+    git:
+      remotes:
+        origin: "https://github.com/pittar-sandbox/qp-quarkus"
+      checkoutFrom:
+        revision: "main"
+        remote: origin
+components:
+  - name: tools
+    container:
+      image: registry.redhat.io/devspaces/udi-rhel8:3.14
+      env:
+        - name: QUARKUS_HTTP_HOST
+          value: 0.0.0.0
+      endpoints:
+        - exposure: none
+          name: debug
+          protocol: tcp
+          targetPort: 5005
+        - exposure: public
+          name: prices
+          protocol: https
+          targetPort: 8080
+          path: /
+      volumeMounts:
+        - name: m2
+          path: /home/user/.m2
+      cpuLimit: '2'
+      cpuRequest: '1'
+      memoryLimit: '4G'
+      memoryRequest: '2G'
+      mountSources: true
+  - name: m2
+    volume:
+      size: 1G
+  - name: "postgres"
+    container:
+      image: "registry.redhat.io/rhel9/postgresql-16:latest"
+      memoryLimit: "512M"
+      env:
+        - name: POSTGRESQL_DATABASE
+          value: quarkus
+        - name: POSTGRESQL_USERNAME
+          value: user
+        - name: POSTGRESQL_PASSWORD
+          value: pass
+      endpoints:
+        - name: postgres
+          targetPort: 5432
+          protocol: tcp
+          exposure: none
+commands:
+  - id: 1-package
+    exec:
+      label: "1. Package the application"
+      component: tools
+      workingDir: ${PROJECTS_ROOT}/pg-quarkus
+      commandLine: "./mvnw package"
+      group:
+        kind: build
+        isDefault: true
+  - id: 2-startdev
+    exec:
+      label: "2. Start Development mode (Hot reload + debug)"
+      component: tools
+      workingDir: ${PROJECTS_ROOT}/pg-quarkus
+      commandLine: "./mvnw compile quarkus:dev"
+      group:
+        kind: run
+        isDefault: true
