@@ -58,7 +58,7 @@ components:
       env:
         - name: POSTGRESQL_DATABASE
           value: quarkus
-        - name: POSTGRESQL_USERNAME
+        - name: POSTGRESQL_USER
           value: user
         - name: POSTGRESQL_PASSWORD
           value: pass
