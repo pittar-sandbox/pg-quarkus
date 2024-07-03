@@ -16,7 +16,7 @@ metadata:
   attributes:
     alpha.dockerimage-port: 8081
 projects:
-  - name: "quarkus-amq"
+  - name: "pg-quarkus"
     git:
       remotes:
         origin: "https://github.com/pittar-sandbox/qp-quarkus"
