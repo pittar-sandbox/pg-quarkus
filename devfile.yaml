@@ -1,6 +1,6 @@
 schemaVersion: 2.2.0
 metadata:
-  name: quarkus-rest-pg
+  name: pg-quarkus
   version: 1.2.1
   provider: Red Hat
   icon: https://design.jboss.org/quarkus/logo/final/SVG/quarkus_icon_rgb_default.svg
@@ -16,7 +16,7 @@ metadata:
   # attributes:
   #   alpha.dockerimage-port: 8081
 projects:
-  - name: "quarkus-rest-pg"
+  - name: "pg-quarkus"
     git:
       remotes:
         origin: "https://github.com/pittar-sandbox/pg-quarkus"
