@@ -19,7 +19,7 @@ projects:
   - name: "pg-quarkus"
     git:
       remotes:
-        origin: "https://github.com/pittar-sandbox/qp-quarkus"
+        origin: "https://github.com/pittar-sandbox/pg-quarkus"
       checkoutFrom:
         revision: "main"
         remote: origin
