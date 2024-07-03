@@ -1,4 +1,8 @@
-# pg-quarkus
+# Quarkus with Panache
+
+Open in **OpenShift Dev Spaces**:
+
+[![Contribute](https://www.eclipse.org/che/contribute.svg)](https://devspaces.apps.cluster-k8c7j.sandbox1466.opentlc.com/#https://raw.githubusercontent.com/pittar-sandbox/pg-quarkus/main/devfile.yaml)
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
